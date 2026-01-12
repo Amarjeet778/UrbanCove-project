@@ -1,0 +1,76 @@
+<style>
+  .search-btn {
+    background-color: rgb(254, 66, 77);
+    color: white;
+    border-radius: 25px;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+  .search-btn:hover {
+    background-color: rgb(254, 66, 77);
+    color: white;
+  }
+  .search-btn i {
+    margin-right: 0.5rem;
+    display: inline;
+  }
+  .search-int {
+    border-radius: 25px;
+    padding: 0.4rem 1.5rem;
+    font-size: 1rem;
+  }
+  .nav-search {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 0.8rem;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-search {
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 992px) {
+
+  .nav-search {
+    max-width: 280px;
+  }
+}
+
+
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">UrbanCove</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form action="/listings/search" method="GET" class="d-flex nav-search" role="search">
+          <input class="form-control me-2 search-int" type="text" name="q" placeholder="Search destinations" />
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if (currentUser) { %>
+          <a class="nav-link" href="/bookings">My Bookings</a>
+      <% } %>
+        <a class="nav-link" href="/listings/new">UrbanCove your home</a>
+        <% if (!currentUser){ %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+        <% if (currentUser) { %>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

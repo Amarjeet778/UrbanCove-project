@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate") %>
+
+<h3 class="mt-4 text-center">My Bookings</h3>
+
+<div class="row mt-4">
+  <% if (bookings.length === 0) { %>
+    <p class="text-center">No bookings yet 😕</p>
+  <% } %>
+
+  <% for (let booking of bookings) { %>
+    <div class="card col-md-4 mb-3 ms-3">
+      <img
+        src="<%= booking.listing.image.url %>"
+        class="card-img-top"
+        alt="Listing image"
+      />
+
+      <div class="card-body">
+        <h5><%= booking.listing.title %></h5>
+
+        <!-- ✅ BOOKING STATUS -->
+        <p>
+          Status:
+          <span class="badge <%= booking.status === 'booked' ? 'bg-success' : 'bg-danger' %>">
+            <%= booking.status %>
+          </span>
+        </p>
+
+        <p>
+          Check-In: <%= booking.checkIn.toDateString() %><br>
+          Check-Out: <%= booking.checkOut.toDateString() %>
+        </p>
+
+        <p>
+          <b>Total:</b> ₹<%= booking.totalPrice.toLocaleString("en-IN") %>
+        </p>
+
+        <!-- ✅ CANCEL BUTTON -->
+        <%
+            const today = new Date();
+            today.setHours(0,0,0,0);
+        %>
+        <p>
+          Status:
+          <span class="badge
+                <%= booking.timelineStatus === 'Upcoming' ? 'bg-primary' :
+                    booking.timelineStatus === 'Checked-In' ? 'bg-warning' :
+                    booking.timelineStatus === 'Completed' ? 'bg-secondary' :
+                    'bg-danger' %>">
+                <%= booking.timelineStatus %>
+            </span>
+        </p>
+        <% if (booking.status === "booked" && today < booking.checkIn) { %>
+            <form action="/bookings/<%= booking._id %>/cancel" method="POST">
+                <button class="btn btn-danger btn-sm">Cancel Booking</button>
+            </form>
+        <% } else if (booking.status === "booked") { %>
+            <p class="text-muted">Cancellation period expired</p>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+</div>
