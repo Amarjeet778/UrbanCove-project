@@ -27,23 +27,32 @@
 
 # 🚀 Features
 
-# 🏠 Property Listings – Create, read, update, and delete property listings
+# 🏠 Property Listings 
+    – Create, read, update, and delete property listings
 
-# 🔐 Authentication & Authorization – Secure login/signup using Passport.js
+# 🔐 Authentication & Authorization 
+    – Secure login/signup using Passport.js
 
-# 🖼️ Image Uploads – Upload and manage property images using Cloudinary & Multer
+# 🖼️ Image Uploads 
+    – Upload and manage property images using Cloudinary & Multer
 
-# 📍 Map Integration – Location display using Mapbox
+# 📍 Map Integration
+    – Location display using Mapbox
 
-# 📅 Booking Management – Date-based booking with conflict prevention
+# 📅 Booking Management 
+    – Date-based booking with conflict prevention
 
-# 💬 Flash Messages – Success and error feedback for better UX
+# 💬 Flash Messages 
+    – Success and error feedback for better UX
 
-# 🧱 MVC Architecture – Clean separation of concerns
+# 🧱 MVC Architecture 
+    – Clean separation of concerns
 
-# 📱 Responsive UI – Styled with Bootstrap
+# 📱 Responsive UI 
+    – Styled with Bootstrap
 
-# 🔒 Environment Security – Sensitive data protected via .env
+# 🔒 Environment Security 
+    – Sensitive data protected via .env
 
 # 🛠️ Tech Stack
 
@@ -83,6 +92,7 @@
     . MongoDB (local or Atlas)
 
 # Setup
+
     . Install dependencies 
     . Create a .env file and add required environment variables. 
     . Start the server
